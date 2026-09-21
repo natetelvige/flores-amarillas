@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jardín de Flores Amarillas ₊˚⊹♡</title>
+
+  <!-- Fuentes Soft & Cute -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Notificación Toast -->
+  <div id="toast" class="toast">✧.* ¡Alguien plantó una flor!</div>
+
+  <!-- 01. BIENVENIDA -->
+  <section id="screen-1" class="screen active">
+    <div class="cute-card">
+      <div class="card-icon">♡</div>
+      <h1>Una pequeña sorpresa para vos</h1>
+      <p>Hay algo dulce esperándote en este rincón digital...</p>
+      <button class="btn-cute" onclick="nextScreen(2)">Abrir mi regalo ♡</button>
+    </div>
+  </section>
+
+  <!-- 02. REVELACIÓN -->
+  <section id="screen-2" class="screen">
+    <div class="cute-card">
+      <div class="card-icon">🌻</div>
+      <h1>Flores amarillas para vos</h1>
+      <p> yupiiii </p>
+      <button class="btn-cute" onclick="openGarden()">✦ Entrar al jardín</button>
+    </div>
+  </section>
+
+  <!-- 03. JARDÍN -->
+  <section id="screen-3" class="screen screen-garden">
+    <div class="garden-header">
+      <h2>Nuestro Jardín</h2>
+      <span id="counter">0 flores plantadas ❀</span>
+    </div>
+
+    <div id="garden-canvas" class="garden-canvas"></div>
+
+    <button class="btn-cute btn-plant-float" onclick="openPlantModal()">🌱 Plantar mi flor</button>
+  </section>
+
+  <!-- MODAL: CREAR FLOR -->
+  <div id="plant-modal" class="modal">
+    <div class="cute-card modal-card">
+      
+      <!-- Paso 1 -->
+      <div id="step-1" class="form-step active">
+        <h1>¿Cómo querés que aparezca tu flor?</h1>
+        <input type="text" id="input-name" placeholder="Tu nombre ♡" maxlength="15">
+        <button class="btn-cute" onclick="nextStep(2)">Siguiente ✨</button>
+      </div>
+
+      <!-- Paso 2 -->
+      <div id="step-2" class="form-step">
+        <h1>Elegí tu flor ❀</h1>
+        <div class="grid-options">
+          <div class="option-card selected" onclick="selectFlower('sakura', this)">
+            <div class="option-icon" id="opt-sakura"></div>
+            Sakura
+          </div>
+          <div class="option-card" onclick="selectFlower('girasol', this)">
+            <div class="option-icon" id="opt-girasol"></div>
+            Girasol
+          </div>
+          <div class="option-card" onclick="selectFlower('margarita', this)">
+            <div class="option-icon" id="opt-margarita"></div>
+            Margarita
+          </div>
+          <div class="option-card" onclick="selectFlower('tulipan', this)">
+            <div class="option-icon" id="opt-tulipan"></div>
+            Tulipán
+          </div>
+        </div>
+        <button class="btn-cute" onclick="nextStep(3)">Siguiente ✨</button>
+      </div>
+
+      <!-- Paso 3 -->
+      <div id="step-3" class="form-step">
+        <h1>¿Querés agregarle algo?</h1>
+        <div class="grid-options">
+          <div class="option-card selected" onclick="selectDeco('none', this)">Ninguna</div>
+          <div class="option-card" onclick="selectDeco('mariposa', this)">🦋 Mariposa</div>
+          <div class="option-card" onclick="selectDeco('abeja', this)">🐝 Abejita</div>
+          <div class="option-card" onclick="selectDeco('brillos', this)">✨ Brillitos</div>
+        </div>
+        <button class="btn-cute" onclick="nextStep(4)">Siguiente ✨</button>
+      </div>
+
+      <!-- Paso 4 -->
+      <div id="step-4" class="form-step">
+        <h1>Dejá un mensajito bonito ✉️</h1>
+        <textarea id="input-message" rows="3" placeholder="Escribí algo que quieras dejar en este jardín..."></textarea>
+        <button class="btn-cute" onclick="submitFlower()">🌱 Plantar mi flor</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL: VER MENSAJE -->
+  <div id="view-modal" class="modal" onclick="closeViewModal(event)">
+    <div class="cute-card">
+      <div id="view-sprite" class="view-sprite-container"></div>
+      <h1 id="view-name">Nombre</h1>
+      <p id="view-message">"Mensaje..."</p>
+      <span class="close-hint">(Tocá afuera para cerrar ♡)</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
