@@ -68,7 +68,7 @@ const CREATOR_FLOWER = {
   name: 'Nati',
   flower_type: 'sakura',
   decoration: 'brillos',
-  message: '¡Bienvenidos a nuestro jardín colectivo! 🌼✨',
+  message: '¡Bienvenidos a nuestro jardín de florecitas! 🌼✨',
   pos_x: 50, 
   pos_y: 55
 };
