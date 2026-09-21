@@ -1,7 +1,8 @@
 // --- 1. SUPABASE SETUP ---
-const SUPABASE_URL = 'TU_SUPABASE_URL';
-const SUPABASE_ANON_KEY = 'TU_SUPABASE_ANON_KEY';
+const SUPABASE_URL = 'https://alfmvdyuufhtxkgquldx.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_bA4xUBIwGyUfpSYWwlqL5Q_-u5HtO_p';
 const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
 
 // --- 2. SVGS ILUSTRADOS SOFT (4 FLORES AMARILLAS) ---
 // --- SVGS EN PIXEL ART CUTE ₊˚⊹♡ ---
